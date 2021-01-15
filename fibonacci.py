@@ -13,7 +13,7 @@ def last_8(some_int):
 
 def optimized_fibonacci(f):
     """
-    Returns the last 8 digits of the fth Fibonacci number.
+    Returns the fth Fibonacci number.
     """
     # raise NotImplementedError()
     if f < 0:
@@ -33,7 +33,7 @@ def optimized_fibonacci(f):
         for i in range(f-1):
             # add up the last two numbers
             m = f_n
-            f_n = last_8(f_m + f_n)
+            f_n = f_m + f_n
             f_m = m
         return f_n
 
@@ -45,7 +45,7 @@ class SummableSequence(object):
     def __call__(self, i):
         n = len(self.sequence)
         for k in range(i):
-            self.sequence.append(last_8(sum(self.sequence[-n:])))
+            self.sequence.append(sum(self.sequence[-n:]))
         return self.sequence[-1]
 
 
