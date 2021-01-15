@@ -38,12 +38,15 @@ def optimized_fibonacci(f):
         return f_n
 
 
-# class SummableSequence(object):
-#     def __init__(self, *initial):
-#         raise NotImplementedError()
+class SummableSequence(object):
+    def __init__(self, *initial):
+        SummableSequence.sequence = list(initial)
 
-#     def __call__(self, i):
-#         raise NotImplementedError()
+    def __call__(self, i):
+        n = len(self.sequence)
+        for k in range(i):
+            self.sequence.append(last_8(sum(self.sequence[-n:])))
+        return self.sequence[-1]
 
 
 if __name__ == "__main__":
@@ -51,5 +54,5 @@ if __name__ == "__main__":
     print("f(100000)[-8:]", last_8(optimized_fibonacci(100000)))
     
 
-#     new_seq = SummableSequence(5, 7, 11)
-#     print("new_seq(100000)[-8:]:", last_8(new_seq(100000)))
+    new_seq = SummableSequence(5, 7, 11)
+    print("new_seq(100000)[-8:]:", last_8(new_seq(100000)))
