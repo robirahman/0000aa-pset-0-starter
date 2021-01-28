@@ -15,7 +15,7 @@ def optimized_fibonacci(f):
     """
     Returns the fth Fibonacci number.
     """
-    # raise NotImplementedError()
+    
     if f < 0:
         raise ValueError("Input must be non-negative.")
     elif type(f) is not int:
